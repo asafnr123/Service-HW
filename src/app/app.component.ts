@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GameControlService } from './game-control.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'HomeWorkWithService';
+  title = 'Homework With Service';
+  service = new GameControlService();
+  randNumber:number|undefined
+
+  buttonClicked() {
+    this.randNumber = this.service.getRandomNumber();
+    this.service.evenOrOdd(this.randNumber);
+  }
+
 }
